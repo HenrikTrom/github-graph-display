@@ -37,7 +37,8 @@ def main():
 
     weekday = githubdays[weekday]
     ncommits = int(grid[weekday][week_number])
-    commit(2, script_dir)
+    print(f"\nWeek: {week_number}, Day: {weekday}, Commits: {ncommits}\n")
+    commit(ncommits, script_dir)
         
     
 if __name__ == "__main__":

@@ -135,7 +135,7 @@ characters5 = {
 
 def write(text):
     grid = np.random.randint(8, 15, (7,52))
-    figure(figsize=(20, 20), dpi=80)
+    figure(figsize=(15, 4), dpi=80)
     idx = 1
     for i in range(len(text)):
         crr = text[i]
@@ -156,8 +156,9 @@ def write(text):
             idx = 0
 
     plt.imshow(grid, cmap='gray', vmin=0, vmax=40)
+    plt.show()
     return grid
-    
+
 # write("I CODE")
 # write("SEGFAULT")
 # write("COMMIT!")
