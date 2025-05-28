@@ -4,6 +4,7 @@ import random
 import numpy as np
 import datetime
 import time
+import random
 
 def commit(ncommits, script_dir):
     words = [
@@ -18,6 +19,9 @@ def commit(ncommits, script_dir):
         subprocess.run(["git", "add", "."], cwd=script_dir)
         subprocess.run(["git", "commit", "-am", commit_message], cwd=script_dir)
         subprocess.run(["git", "push"], cwd=script_dir)
+        delay = int(random.random()*20)
+        print(f"Commit {i}, sleep for {delay}s")
+        time.sleep(delay)
 
 
 def main():
@@ -33,7 +37,7 @@ def main():
 
     weekday = githubdays[weekday]
     ncommits = int(grid[weekday][week_number])
-    commit(1, script_dir)
+    commit(2, script_dir)
         
     
 if __name__ == "__main__":
