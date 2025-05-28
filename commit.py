@@ -27,8 +27,7 @@ def commit(ncommits, script_dir):
 def main():
     script_path = os.path.abspath(__file__)
     script_dir = os.path.dirname(script_path)
-    text="HACKERMAN"
-    grid = np.loadtxt(f"{script_dir}/{text}.csv", delimiter=",")
+    grid = np.loadtxt(f"{script_dir}/pattern.csv", delimiter=",")
     githubdays = [
         1, 2, 3, 4, 5, 6, 0
     ]
