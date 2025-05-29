@@ -32,11 +32,11 @@ def main():
         1, 2, 3, 4, 5, 6, 0
     ]
     week_number = datetime.date.today().isocalendar().week
-    weekday = datetime.date.today().weekday()
+    weekday = datetime.date.today().weekday() # starts at 0
 
-    weekday = githubdays[weekday]
-    ncommits = int(grid[weekday][week_number])
-    print(f"\nWeek: {week_number}, Day: {weekday}, Commits: {ncommits}\n")
+    githubday = githubdays[weekday]
+    ncommits = int(grid[githubday][week_number])
+    print(f"\nWeek: {week_number}, Day: {weekday}, GithubDay: {githubday}, Commits: {ncommits}\n")
     commit(ncommits, script_dir)
         
     
