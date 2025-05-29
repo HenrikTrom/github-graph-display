@@ -197,7 +197,7 @@ characters5 = {
     ],    
 }
 
-def write(text):
+def write(text, script_dir):
     grid = np.random.randint(8, 15, (7,52))
     figure(figsize=(15, 4), dpi=80)
     idx = 1
@@ -218,10 +218,12 @@ def write(text):
                         idx += 1                        
         if idx>52-5:
             idx = 0
-
+            
+    np.savetxt(f"{script_dir}/pattern.csv", grid, delimiter=",")
     plt.imshow(grid, cmap='gray', vmin=0, vmax=40)
+    plt.savefig(f"{script_dir}/pattern.jpg")
+    print(f"Saved {script_dir}/pattern.csv")
     plt.show()
-    return grid
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -229,8 +231,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("message", type=str, help="The text you want to generate/display")
     args = parser.parse_args()
-    grid = write(args.message)
     script_path = os.path.abspath(__file__)
     script_dir = os.path.dirname(script_path)
-    np.savetxt(f"{script_dir}/pattern.csv", grid, delimiter=",")
-    print(f"Saved {script_dir}/pattern.csv")
+    write(args.message, script_dir)
+    
